@@ -34,7 +34,7 @@ body {
 
 .header a {
   text-decoration: none;
-  color: #9858ff;
+  color: #7338d3;
 }
 
 .agora {
@@ -106,6 +106,7 @@ body {
 .social {
   background-color: #e5e5e5;
   display: flex;
+  height: 600px;
 }
 
 .social .container {
@@ -113,7 +114,15 @@ body {
 }
 
 .box img {
-  width: 170px;
+ border-radius: 200px; 
+ height: 300px; 
+ width: 300px;
+}
+.box h4{
+  color: #7338d3;
+  font-size: 30px;
+margin-bottom: 5px;
+margin-top: 15px;
 }
 
 .social .container .boxes {
