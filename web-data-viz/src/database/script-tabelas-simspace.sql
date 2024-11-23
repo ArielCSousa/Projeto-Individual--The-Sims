@@ -12,3 +12,23 @@ CREATE TABLE usuario (
 	email VARCHAR(50) UNIQUE,
 	senha VARCHAR(50)
 );
+
+CREATE TABLE pontuacao (
+    idPontuacao INT PRIMARY KEY,
+    pontos INT,
+    datahora DATETIME,
+    fkUsuario INT,
+    CONSTRAINT fkPontuacaoUsuario FOREIGN KEY (fkUsuario) REFERENCES usuario(id) 
+);
+
+
+select*from usuario;
+
+SELECT 
+    pontos,
+    DATE_FORMAT(datahora, '%H:%i:%s') as datahora_grafico, 
+    fkUsuario
+FROM pontuacao 
+WHERE fkUsuario = 1 
+ORDER BY idPontuacao DESC 
+LIMIT 1;
