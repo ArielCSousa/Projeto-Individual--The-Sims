@@ -26,10 +26,9 @@ CREATE TABLE pontuacao (
 select*from usuario;
 
 SELECT 
-    pontos,
+    acertos,
     DATE_FORMAT(datahora, '%H:%i:%s') as datahora_grafico, 
     fkUsuario
 FROM pontuacao 
-WHERE fkUsuario = 1 
-ORDER BY idPontuacao DESC 
-LIMIT 1;
+WHERE fkUsuario = idUsuario 
+ORDER BY idPontuacao;
