@@ -7,7 +7,7 @@ USE simspace;
 
 -- CADASTRO DE USUÁRIOS DO SITE
 CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
+	idUsuario INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(50),
 	email VARCHAR(50) UNIQUE,
 	senha VARCHAR(50)
@@ -15,10 +15,11 @@ CREATE TABLE usuario (
 
 CREATE TABLE pontuacao (
     idPontuacao INT PRIMARY KEY,
-    pontos INT,
+    acertos INT,
+    erros INT,
     datahora DATETIME,
     fkUsuario INT,
-    CONSTRAINT fkPontuacaoUsuario FOREIGN KEY (fkUsuario) REFERENCES usuario(id) 
+    CONSTRAINT fkPontuacaoUsuario FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario) 
 );
 
 

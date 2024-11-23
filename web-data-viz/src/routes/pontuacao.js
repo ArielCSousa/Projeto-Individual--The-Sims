@@ -3,11 +3,11 @@ var router = express.Router();
 
 var pontuacaoController = require("../controllers/pontuacaoController");
 
-router.get("/ultimas/:idPontuacao", function (req, res) {
+router.get("/ultimas", function (req, res) {
    pontuacaoController.buscarUltimasPontuacoes(req, res);
 });
 
-router.get("/tempo-real/:idPontuacao", function (req, res) {
+router.get("/tempo-real", function (req, res) {
     pontuacaoController.buscarPontuacoesEmTempoReal(req, res);
 })
 
