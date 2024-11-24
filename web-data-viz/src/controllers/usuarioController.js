@@ -1,5 +1,5 @@
 var usuarioModel = require("../models/usuarioModel");
-var aquarioModel = require("../models/aquarioModel");
+// var aquarioModel = require("../models/aquarioModel");
 
 function autenticar(req, res) {
     var email = req.body.emailServer;
@@ -64,62 +64,58 @@ function cadastrar(req, res) {
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-    // var fkEmpresa = req.body.idEmpresaVincularServer;
+    
 
     // Faça as validações dos valores
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
+        return;
     } else if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
+        return;
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
+        return;
     } else if (senha.length < 6) {
         res.status(400).send("A senha deve ter pelo menos 6 caracteres!");
+        return;
     }
 
     usuarioModel.verificar(email)
-        .then(
-            function (resultadoVerificacao) {
-                if (resultadoVerificacao.length > 0) {
-                    res.status(400).send("Já existe email cadastrado!");
-                    console.log(`existe`)
-                } else {
-                    console.log(`nao existe`)
-                    usuarioModel.cadastrar(nome, email, senha)
-                        .then(
-                            function (resultado) {
-                                res.json(resultado);
-                            }
-                        ).catch(
-                            function (erro) {
-                                console.log(erro);
-                                console.log(
-                                    "\nHouve um erro ao realizar o cadastro! Erro: ",
-                                    erro.sqlMessage
-                                );
-                                res.status(500).json(erro.sqlMessage);
-                            }
-                        );
-                }
+    .then(
+        function (resultadoVerificacao) {
+            if (resultadoVerificacao.length > 0) {
+                res.status(400).send("Já existe email cadastrado!");
+                console.log(`existe`);
+            } else {
+                console.log(`nao existe`);
+                usuarioModel.cadastrar(nome, email, senha)
+                    .then(
+                        function (resultado) {
+                            res.json(resultado);
+                        }
+                    ).catch(
+                        function (erro) {
+                            console.log(erro);
+                            console.log(
+                                "\nHouve um erro ao realizar o cadastro! Erro: ",
+                                erro.sqlMessage
+                            );
+                            res.status(500).json(erro.sqlMessage);
+                        }
+                    );
             }
-
-        )
-    // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-    // usuarioModel.cadastrar(nome, email, senha)
-    //     .then(
-    //         function (resultado) {
-    //             res.json(resultado);
-    //         }
-    //     ).catch(
-    //         function (erro) {
-    //             console.log(erro);
-    //             console.log(
-    //                 "\nHouve um erro ao realizar o cadastro! Erro: ",
-    //                 erro.sqlMessage
-    //             );
-    //             res.status(500).json(erro.sqlMessage);
-    //         }
-    //     );
+        }
+    ).catch(  // <== Este é o último `catch`
+        function (erro) {
+            console.log(erro);  // Loga o erro
+            console.log(
+                "\nHouve um erro ao verificar o email! Erro: ",
+                erro.sqlMessage
+            );
+            res.status(500).json(erro.sqlMessage);  // Envia a resposta de erro para o cliente
+        }
+    );
 }
 
 

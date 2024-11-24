@@ -7,7 +7,7 @@ USE simspace;
 
 -- CADASTRO DE USUÁRIOS DO SITE
 CREATE TABLE usuario (
-	idUsuario INT PRIMARY KEY AUTO_INCREMENT,
+	id INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(50),
 	email VARCHAR(50) UNIQUE,
 	senha VARCHAR(50)
@@ -21,14 +21,7 @@ CREATE TABLE pontuacao (
     fkUsuario INT,
     CONSTRAINT fkPontuacaoUsuario FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario) 
 );
-
+ 
 
 select*from usuario;
 
-SELECT 
-    acertos,
-    DATE_FORMAT(datahora, '%H:%i:%s') as datahora_grafico, 
-    fkUsuario
-FROM pontuacao 
-WHERE fkUsuario = idUsuario 
-ORDER BY idPontuacao;

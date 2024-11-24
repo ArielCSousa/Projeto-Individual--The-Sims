@@ -11,4 +11,8 @@ router.get("/tempo-real", function (req, res) {
     pontuacaoController.buscarPontuacoesEmTempoReal(req, res);
 })
 
+router.post("/cadastrarPontos", function (req, res) {
+    pontuacaoController.cadastrarPontos(req, res);
+})
+
 module.exports = router;
