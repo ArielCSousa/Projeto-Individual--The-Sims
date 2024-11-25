@@ -2,7 +2,7 @@
 /* The 4-point grid system: https://medium.com/@sainzkike/controlling-spacing-in-design-systems-multiple-spacing-9bf1afec87f */
 
 :root {
-    --primary-brand-color: #ED145B;
+    --primary-brand-color: rgba(92, 11, 243, 0.626);
     --secondary-brand-color: #0762C8;
     --success: #198754;
     --success-dark: #095c36;
@@ -39,7 +39,8 @@ button {
 }
 
 .border-primary {
-    border: 3px solid var(--primary-brand-color);
+    border: 15px solid var(--primary-brand-color);
+    border-radius: 20px;
 }
 
 .border-secondary {

@@ -18,16 +18,20 @@
     --new-white: #E8E8E8;
 }
 
+
+
+
 body {
     color: var(--new-black);
-    background-color: var(--new-white);
+    background-image: url(../../public/assets/imgs/fundo-thesims-critais.png);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-button {
+/* button {
     font-family: monospace;
     font-weight: bold;
-}
+} */
+
 
 .flex-colunar {
     display: flex;
@@ -39,11 +43,11 @@ button {
 }
 
 .border-primary {
-    border: 3px solid var(--primary-brand-color);
+    border: 30px solid var(--primary-brand-color);
 }
 
 .border-secondary {
-    border: 3px solid var(--secondary-brand-color);
+    border: 30px solid var(--secondary-brand-color);
 }
 
 .padding-8 {
