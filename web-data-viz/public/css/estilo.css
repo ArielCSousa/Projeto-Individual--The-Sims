@@ -29,7 +29,7 @@ body {
   flex-wrap: wrap;
   align-content: space-around;
   justify-content: space-around;
-  background-image: radial-gradient(circle,rgb(195,175,240) 30%,rgba(137, 215, 192, 0.568) )
+  background-image: linear-gradient(to right, #e5e5e5, rgb(195, 175, 240) 70%, #e5e5e5);
   
 }
 
@@ -52,7 +52,7 @@ body {
 .kpiAcerto{
   display: flex;
   background-color: rgba(127, 255, 212, 0.568);
-  height: 150px;
+  height: 90px;
   width: 200px;
   padding: 50px;
   border-radius: 30px;
@@ -61,12 +61,13 @@ body {
   color: #5763ac;
   flex-direction: row;
   margin-left: 150px;
+  border: 5px solid rgb(146, 252, 216);
 }
 
 .kpiErro{
   display: flex;
   background-color: #5763ac;
-  height: 150px;
+  height: 90px;
   width: 200px;
   padding: 50px;
   border-radius: 30px;
@@ -75,6 +76,7 @@ body {
   color: rgb(127, 255, 212);
   flex-direction: row;
   margin-left: -300px;
+  border: 5px solid #6a77cfe8;
 }
 
 .header {

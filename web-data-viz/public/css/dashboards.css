@@ -121,10 +121,10 @@ body {
   flex-wrap: wrap;
   align-content: space-around;
   justify-content: space-around;
-  width: 80%;
+  width: 92%;
   position: relative;
   top: 0;
-  left: 20%;
+  left: 9%;
   background-image: linear-gradient(to right,#e5e5e5 , rgb(195, 175, 240) 70%, #e5e5e5 );
   height: 100vh;
   overflow: auto;
@@ -203,47 +203,6 @@ body {
   color: white;
 }
 
-.card-aquario {
-  margin: 2%;
-  min-width: 40%;
-  max-width: 50%;
-  width: fit-content;
-  flex-wrap: wrap;
-  display: flex;
-  /* text-align: center; */
-  height: 180px;
-  /* justify-content: right; */
-  background-color: #212124;
-  font-size: 20px;
-}
-
-.card-aquario h1 {
-  width: fit-content;
-}
-
-.card-aquario p {
-  margin: 0;
-  font-size: 50px;
-  font-weight: lighter;
-  text-align: left;
-}
-
-.desc-aquario {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-}
-
-.desc-aquario .cor-alerta {
-  width: 30px;
-}
-
-.title-aquario {
-  width: 100%;
-}
-
-
 .cards h1 {
   font-size: 22px;
   border-bottom: solid white 1px;
@@ -260,20 +219,6 @@ body {
   display: inline-block;
 }
 
-.btns-dash {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 30px;
-  flex-wrap: wrap;
-  padding: 0 30% 0 30%;
-}
-
-.graph {
-  width: 70%;
-  margin: auto;
-  padding-top: 10px;
-}
 
 .tituloGraficos {
   color: rgb(216, 216, 216);
@@ -281,18 +226,7 @@ body {
   justify-content: center;
 }
 
-.btn-chart {
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  border: 0;
-  font-weight: 600;
-  font-size: 18px;
-  padding: 10px 15px;
-  color: #e6005a;
-  background-color: white;
-  margin: 5px;
-  border-radius: 3px;
-  cursor: pointer
-}
+
 
 .btn-pink {
   color: white;
@@ -433,14 +367,14 @@ canvas {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 300px;
-  width: 500px;
+  height: 200px;
+  width: 400px;
   background-color: #eae8e863;
-  padding: 60px;
+  padding: 30px;
   border-radius: 30px;
   color: #7757ac ;
   font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 40px;
+  font-size: 25px;
   cursor: pointer;
   margin-left: 50px ;
   border: 10px double rgb(176, 240, 175);
@@ -458,7 +392,3 @@ canvas {
   background-color: rgba(176, 240, 175, 0.474); /* Muda a cor de fundo */
 }
 
-.card3:hover{
-  transform: translateY(-10px); /* Aproxima o card */
-  background-color: rgba(176, 240, 175, 0.474); /* Muda a cor de fundo */
-}
