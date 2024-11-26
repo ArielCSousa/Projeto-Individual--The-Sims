@@ -87,10 +87,27 @@ function pontuacaoUsuario(req,res){
             );
 }
 
+function pontuacaoMaxMinKpi(req,res){
+    var idUsuario = req.params.idUsuario
+
+    pontuacaoModel.pontuacaoMaxMinKpi(idUsuario)
+            .then(
+                function (resultado) {
+                    res.status(200).json(resultado)
+                }
+            )
+            .catch(
+                function (erro) {
+                    res.status(500).json(erro.sqlMessage)
+                }
+            )
+}
+
 
 module.exports = {
     buscarUltimasPontuacoes,
     buscarPontuacoesEmTempoReal,
     cadastrarPontos,
-    pontuacaoUsuario
+    pontuacaoUsuario,
+    pontuacaoMaxMinKpi
 }

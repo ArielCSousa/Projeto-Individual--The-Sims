@@ -304,7 +304,7 @@ onload="onloadEsconder()">
         "Content-Type": "application/json",
     },
     body: JSON.stringify({
-        idUsuario: 1,  // Substitua pelo ID real do usuário
+        idUsuario: sessionStorage.ID_USUARIO,  // Substitua pelo ID real do usuário
         acerto: certas,
         erros: erradas,
     }),

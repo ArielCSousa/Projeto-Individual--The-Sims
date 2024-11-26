@@ -42,15 +42,25 @@ function cadastrarPontos(idUsuario, acertos, erros) {
     return database.executar(instrucaoSql);
 }
 
-function pontuacaoUsuario(idUsuario){
-    var instrucaoSql = `SELECT*FROM pontuacao WHERE fkUsuario = ${idUsuario};`
+function pontuacaoUsuario(idUsuario) {
+    var instrucaoSql = `SELECT idPontuacao, acertos, erros, datahora, fkUsuario
+                        FROM pontuacao WHERE fkUsuario = ${idUsuario};`
     return database.executar(instrucaoSql);
 }
 
+function pontuacaoMaxMinKpi(idUsuario) {
+    var instrucaoSql = `SELECT 
+                        MAX(acertos) AS maxacertos,
+                        MAX(erros) AS maxerros
+                        FROM pontuacao
+                        WHERE fkUsuario = ${idUsuario};`
+                        return database.executar(instrucaoSql);
+}
 
 module.exports = {
     buscarUltimasPontuacoes,
     buscarPontuacoesEmTempoReal,
     cadastrarPontos,
-    pontuacaoUsuario
+    pontuacaoUsuario,
+    pontuacaoMaxMinKpi
 }

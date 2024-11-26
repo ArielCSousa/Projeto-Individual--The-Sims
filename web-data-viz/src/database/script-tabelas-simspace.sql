@@ -14,14 +14,14 @@ CREATE TABLE usuario (
 );
 
 CREATE TABLE pontuacao (
-    idPontuacao INT PRIMARY KEY,
+    idPontuacao INT PRIMARY KEY AUTO_INCREMENT,
     acertos INT,
     erros INT,
     datahora DATETIME,
     fkUsuario INT,
-    CONSTRAINT fkPontuacaoUsuario FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario) 
+    CONSTRAINT fkPontuacaoUsuario FOREIGN KEY (fkUsuario) REFERENCES usuario(id) 
 );
  
 
 select*from usuario;
-
+select*from pontuacao;

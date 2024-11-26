@@ -28,7 +28,7 @@
 
 <!-- <body onload=" atualizarFeed()"> -->
 
-<body onload="pontuacaoUsuario()">
+<body onload="pontuacaoUsuario(), pontuacaoMaxMinKpi()">
 
     <div class="janela">
         <div class="header-left">
@@ -101,6 +101,9 @@
         if (resposta.ok) {
             console.log(resposta);
 
+
+
+
             resposta.json().then(json => {
                 let labels = [];
                 console.log(json)
@@ -161,7 +164,31 @@
     return false;
 }
 
+function pontuacaoMaxMinKpi(){
+     // Pega o ID do usuário do sessionStorage
+     var idUsuario = sessionStorage.ID_USUARIO;
 
+     fetch(`/pontuacao/pontuacaoMaxMinKpi/${idUsuario}`, {
+        cache: "no-store"
+    })
+    .then(function (resposta) {
+        if (resposta.ok) {
+            console.log(resposta);
+
+            resposta.json().then(json => {
+              const respostaSelect = json[0]
+                kpiAcertos.innerHTML = `<center>Maior quantidade de acertos: <br> ${respostaSelect.maxacertos}</center>`
+                kpiErros.innerHTML = `<center>Maior quantidade de erros: <br> ${respostaSelect.maxerros}</center>`
+            });
+
+        } else {
+            console.log("Resposta não OK: ", resposta.status);
+        }
+    })
+    .catch(function (erro) {
+        console.log("Erro na requisição: ", erro);
+    });
+}
 
 
     // let proximaAtualizacao;
