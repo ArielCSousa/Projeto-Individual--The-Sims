@@ -2,7 +2,7 @@ var pontuacaoModel = require("../models/pontuacaoModel");
 
 function buscarUltimasPontuacoes(req, res) {
 
-    const limite_linhas = 7;
+    const limite_linhas = 3;
 
     var idPontuacao = req.params.idPontuacao;
 
@@ -70,10 +70,27 @@ function cadastrarPontos(req, res) {
     }
 }
 
+function pontuacaoUsuario(req,res){
+    var idUsuario = req.params.idUsuario
+    
+    pontuacaoModel.pontuacaoUsuario(idUsuario)
+            .then(
+                function (resultado) {
+                    res.status(200).json(resultado);
+                }
+            )
+            .catch(
+                function (erro) {
+                    
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+}
+
 
 module.exports = {
     buscarUltimasPontuacoes,
     buscarPontuacoesEmTempoReal,
-    cadastrarPontos
-
+    cadastrarPontos,
+    pontuacaoUsuario
 }

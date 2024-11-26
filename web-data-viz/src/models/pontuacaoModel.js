@@ -17,7 +17,7 @@ function buscarUltimasPontuacoes(idPontuacao) {
 function buscarPontuacoesEmTempoReal(idPontuacao) {
 
     var instrucaoSql = `SELECT 
-                        pontos,
+                        acertos,
                         DATE_FORMAT(datahora,'%H:%i:%s') as datahora_grafico, 
                         fkUsuario
                         FROM pontuacao 
@@ -42,8 +42,15 @@ function cadastrarPontos(idUsuario, acertos, erros) {
     return database.executar(instrucaoSql);
 }
 
+function pontuacaoUsuario(idUsuario){
+    var instrucaoSql = `SELECT*FROM pontuacao WHERE fkUsuario = ${idUsuario};`
+    return database.executar(instrucaoSql);
+}
+
+
 module.exports = {
     buscarUltimasPontuacoes,
     buscarPontuacoesEmTempoReal,
-    cadastrarPontos
+    cadastrarPontos,
+    pontuacaoUsuario
 }
